@@ -5,11 +5,15 @@ import mongoose from "mongoose";
 const FarmerSchema = mongoose.Schema({
     name: {
         type: String,
-        requried: true
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
     },
     cultivation: {
         type: String,
-        requried: true
+        required: true
     },
     about: {
         type: String,
