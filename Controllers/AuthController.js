@@ -10,9 +10,10 @@ export const registerfarmer = async (req, res) => {
         const oldUser = await FarmerModel.findOne({ name: name });
         if (oldUser) {
             res.status(400).json({ message: "user is already registered" });
+        } else {
+            await farmer.save();
+            res.status(200).json(farmer);
         }
-        await farmer.save();
-        res.status(200).json(farmer);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
