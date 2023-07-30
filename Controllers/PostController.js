@@ -4,9 +4,9 @@ import mongoose from "mongoose";
 
 // create a post 
 export const createPost = async (req, res) => {
-    const { userId, image, category, description, location } = req.body;
+    const { userId, name, profilePicture, image, category, description, location } = req.body;
 
-    const newPost = new PostModel({ userId, image, category, description, location });
+    const newPost = new PostModel({ userId, name, profilePicture, image, category, description, location });
 
     try {
         await newPost.save();
@@ -21,6 +21,7 @@ export const getPost = async (req, res) => {
     const id = req.params.id;
 
     try {
+        console.log(id);
         const post = await PostModel.findById(id);
         res.status(200).json(post);
     } catch (error) {

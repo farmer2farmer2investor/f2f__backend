@@ -7,6 +7,14 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String,
+        required: true,
+    },
+    profilePicture: {
+        type: String,
+        required: true
+    },
     image: {
         type: String,
         required: true
