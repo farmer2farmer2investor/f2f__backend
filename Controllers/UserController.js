@@ -1,5 +1,19 @@
 import FarmerModel from "../Models/farmerModel.js";
 
+
+// get an user
+export const getUser = async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const user = await FarmerModel.findById(id);
+        console.log(id);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
+
 // follow user
 export const followUser = async (req, res) => {
     const id = req.params.id;
@@ -56,3 +70,5 @@ export const unfollowUser = async (req, res) => {
         }
     }
 };
+
+

@@ -29,6 +29,17 @@ export const getPost = async (req, res) => {
     }
 };
 
+// get user posts
+export const userPosts = async (req, res) => {
+    const userId = req.params.id;
+    try {
+        const posts = await PostModel.find({ userId: userId });
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
+
 // like/dislike a post 
 export const likePost = async (req, res) => {
     const id = req.params.id;
