@@ -2,16 +2,8 @@
 
 import mongoose from "mongoose";
 
-const postSchema = mongoose.Schema({
+const PostSchema = mongoose.Schema({
     userId: {
-        type: String,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true,
-    },
-    profilePicture: {
         type: String,
         required: true
     },
@@ -23,7 +15,7 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
+    content: {
         type: String,
         required: true
     },
@@ -31,8 +23,7 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    likes: []
 }, { timestamps: true })
 
-const PostModel = mongoose.model("Posts", postSchema);
+const PostModel = mongoose.model("Post", PostSchema);
 export default PostModel;
